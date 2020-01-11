@@ -19,6 +19,7 @@
             <span class="badge">NESABOX</span>
             <span class="badge">GIT</span>
             <span class="badge">REDUX</span>
+             <span class="badge">VUEX</span>
             <span class="badge">MATERIAL DESIGN</span>
             <span class="badge">BOOTSTRAP</span>
             <span class="badge">UIKIT</span>
