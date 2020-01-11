@@ -19,7 +19,7 @@
             <span class="badge">NESABOX</span>
             <span class="badge">GIT</span>
             <span class="badge">REDUX</span>
-             <span class="badge">VUEX</span>
+            <span class="badge">VUEX</span>
             <span class="badge">MATERIAL DESIGN</span>
             <span class="badge">BOOTSTRAP</span>
             <span class="badge">UIKIT</span>
@@ -42,12 +42,12 @@
         display: flex;
         width: 100%;
         flex-wrap: wrap;
-
+        justify-content: space-evenly;
         .badge {
             padding: 0.8em 1em;
             text-transform: uppercase;
             border-radius: 20px;
-            margin: 1em;
+            margin: 1em 0.5em;
             font-weight: bold;
             font-size: 0.7em;
             box-shadow: var(--box-shadow);
@@ -56,6 +56,10 @@
     }
     @include md {
         &Container {
+            justify-content: unset;
+            .badge {
+                margin: 1em;
+            }
         }
     }
 }
