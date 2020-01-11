@@ -8,7 +8,7 @@
 		</h1>
 
 		<p class="author__intro">
-			Phebian is a front end developer, growing, learning and killing it.
+			Phebian is a frontend developer, growing, learning and killing it.
 		</p>
 
 		<p class="author__links">

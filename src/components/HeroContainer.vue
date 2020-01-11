@@ -2,16 +2,11 @@
   <section>
     <div class="card">
       <div class="about">
-        <h1>Javascript Developer</h1>
-        <p>Lagos based software developer with experience working with AngularJs, Angular, VueJs, ReactJs and NodeJs.</p>
-        <p>
-          I design and build web applications. I currently work as a Full-Stack Developer at
-          <a
-            target="_blank"
-            href="//kudi.co/"
-          >KudiHq.</a>
+        <h1>Chukwurah Phebian</h1>
+        <p>I am a software developer, passionate about building solutions that make lives better.
+          I design and build web applications. 
         </p>
-        <div>
+        <div class="about__connect">
           <a target="_blank" href="//twitter.com/ph3bian">Twitter</a>
           <a target="_blank" href="//github.com/ph3bian">Github</a>
         </div>
@@ -43,7 +38,7 @@ section {
       div {
         a {
           text-decoration: none;
-          color: var(--title-color);
+          color: var(--text-color);
           background-color: var(--bg-button-color);
           border: 1px solid transparent;
           border-radius: 20px;
@@ -64,6 +59,9 @@ section {
       @include md {
         width: 100%;
         padding: 4em;
+      }
+      &__connect{
+        padding-top: 1.5em;
       }
     }
     .image-container {

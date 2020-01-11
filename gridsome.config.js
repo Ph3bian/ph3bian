@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: 'Phebian Chukwurah',
-  siteDescription: 'Phebian is a front end developer, growing, learning and killing it.',
+  siteDescription: 'Phebian is a frontend developer, growing, learning and killing it.',
 
   plugins: [
     {
