@@ -43,7 +43,7 @@
                 <p>
                     Seamfix is popularly Known as the Identity Champions in
                     Nigeria, during my time there I worked on the company
-                    website, BioRegistra, AutoTopUp and others. 
+                    website, BioRegistra, AutoTopUp and others.
                 </p>
             </div>
         </div>
@@ -75,7 +75,7 @@
             border-radius: 20px;
             background-color: var(--bg-button-color);
             color: var(--title-color);
-            box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--box-shadow);
             margin: 2em auto;
             width: 100%;
             h3 {

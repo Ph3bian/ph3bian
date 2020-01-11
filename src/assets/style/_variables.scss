@@ -15,6 +15,7 @@ body {
   --border-color: rgba(0, 0, 0, 0.1);
   --space: 3.5rem;
   --content-width: 860px;
+  --box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
   --header-height: 80px;
   --radius: 5px;
   --text-color: #111;
@@ -46,4 +47,5 @@ body[data-theme="dark"] {
   --link-color: #0088BA;
   --text-color: #fff;
   --bg-button-color:#0088BA;
+  --box-shadow: 1px 3px 6px rgba(255, 255, 255, 0.13);
 }

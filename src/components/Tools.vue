@@ -1,47 +1,61 @@
 <template>
-  <div class="history">
-    <h2>Tools I </h2>
-    <div class="row_Container">
-      <div class="card">
-        <h3>Kudi</h3>
-        <p>Full Stack Developer</p>
-      </div>
-      <div class="card">
-        <h3>Softcom</h3>
-        <p>Frontend Developer</p>
-      </div>
-      <div class="card">
-        <h3>Seamfix</h3>
-        <p>Frontend Developer</p>
-      </div>
+    <div class="Tools">
+        <h2>Tools</h2>
+        <div class="ToolsContainer">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">SCSS</span>
+            <span class="badge">JAVASCRIPT</span>
+            <span class="badge">REACT</span>
+            <span class="badge">VUE</span>
+            <span class="badge">ANGULARJS</span>
+            <span class="badge">ANGULAR</span>
+            <span class="badge">GATSBY</span>
+            <span class="badge">GRIDSOME</span>
+            <span class="badge">ADONISJS</span>
+            <span class="badge">JEST</span>
+            <span class="badge">NETLIFY</span>
+            <span class="badge">HEROKU</span>
+            <span class="badge">NESABOX</span>
+            <span class="badge">GIT</span>
+            <span class="badge">REDUX</span>
+            <span class="badge">MATERIAL DESIGN</span>
+            <span class="badge">BOOTSTRAP</span>
+            <span class="badge">UIKIT</span>
+            <span class="badge">FUSIONCHARTS</span>
+        </div>
     </div>
-  </div>
 </template>
 <style lang="scss" scoped>
-@import "../assets/style/mixins";
+@import '../assets/style/mixins';
 
-.history {
-  margin-top: 1em;
-  justify-content: center;
-  font-size: 1rem;
-  text-align: center;
-  h2 {
-    margin: 3em auto 2em;
-  }
-  .row_Container {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-row-gap: 1em;
+.Tools {
+    margin-top: 1em;
     justify-content: center;
-    align-items: center;
-  }
-
-  @include md {
-    .row_Container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-column-gap: 3em;
+    font-size: 1rem;
+    text-align: center;
+    h2 {
+        margin: 3em auto 2em;
     }
-  }
+    &Container {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+
+        .badge {
+            padding: 0.8em 1em;
+            text-transform: uppercase;
+            border-radius: 20px;
+            margin: 1em;
+            font-weight: bold;
+            font-size: 0.7em;
+            box-shadow: var(--box-shadow);
+            min-width: 5em;
+        }
+    }
+    @include md {
+        &Container {
+        }
+    }
 }
 </style>

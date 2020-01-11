@@ -25,12 +25,13 @@ section {
   }
   .card {
     display: block;
-    min-height: 25em;
+    min-height: 20em;
     @include md {
       display: grid;
       grid-template-columns: 2fr 1.5fr;
       grid-column-gap: 3em;
       border-radius: 20px;
+         min-height: 25em;
     }
     .about {
       margin: 2em auto;
@@ -52,7 +53,7 @@ section {
             outline: 0;
             -webkit-transition: all 0.2s ease;
             transition: all 0.2s ease;
-            box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
+           box-shadow: var(--box-shadow);
           }
         }
       }

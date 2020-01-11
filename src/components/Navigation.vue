@@ -1,7 +1,7 @@
 <template v-on:scroll.passive='handleScroll'>
     <header v-bind:class="['header', isScrolled ? 'sticky' : '']">
         <div class="header__left">
-            Phebian Chukwurah
+       
         </div>
 
         <div class="header__right">
