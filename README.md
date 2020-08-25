@@ -1,4 +1,4 @@
-# Shopping
+# Ph3bian
 
 My personal website built with [Gridsome](https://gridsome.org/).
 
