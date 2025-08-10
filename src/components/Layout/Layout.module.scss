@@ -3,7 +3,12 @@
 .main {
   margin: 0 auto;
   padding: 1.5vw 1em;
+
   @include md {
+    padding: 1.5vw 1.25em;
+  }
+
+  @include lg {
     padding: 1.5vw 5.25em;
   }
 }
@@ -23,4 +28,4 @@
   a {
     color: currentColor;
   }
-} 
+}
