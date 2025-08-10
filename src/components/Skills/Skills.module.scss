@@ -1,0 +1,91 @@
+@import "../../assets/style/mixins";
+
+.skills {
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(
+      135deg,
+      var(--title-color),
+      var(--primary-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: var(--body-color);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.skillsCategories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.category {
+  padding: 2rem;
+  background: var(--bg-content-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  border-left: 2px solid var(--primary-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--title-color);
+  }
+
+  p {
+    color: var(--body-color);
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header h2 {
+    font-size: 2rem;
+  }
+
+  .skillsCategories {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

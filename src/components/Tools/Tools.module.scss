@@ -1,0 +1,108 @@
+@import "../../assets/style/mixins";
+
+.tools {
+  padding: 5rem 0;
+  
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--title-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.toolsContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.badge {
+  background: var(--bg-content-color);
+  color: var(--text-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(235, 88, 185, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(235, 88, 185, 0.2);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:nth-child(3n + 1) {
+    border-color: rgba(235, 88, 185, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, rgba(235, 88, 185, 0.1), rgba(255, 107, 157, 0.1));
+    }
+  }
+  
+  &:nth-child(3n + 2) {
+    border-color: rgba(0, 136, 186, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, rgba(0, 136, 186, 0.1), rgba(0, 119, 182, 0.1));
+      border-color: #0088BA;
+    }
+  }
+  
+  &:nth-child(3n + 3) {
+    border-color: rgba(52, 73, 94, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, rgba(52, 73, 94, 0.1), rgba(44, 62, 80, 0.1));
+      border-color: #34495e;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tools {
+    padding: 3rem 0;
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .toolsContainer {
+    padding: 0 1rem;
+    gap: 0.8rem;
+  }
+  
+  .badge {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+} 

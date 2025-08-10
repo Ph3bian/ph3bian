@@ -7,7 +7,7 @@ html {
 body {
   --bg-color:#f8edf3;
   --bgColor:#f8edf3;
-  --bg-content-color: #fff;
+  --bg-content-color: rgba(255, 255, 255, 0.35);
   --bg-code: #fffbf3;
   --body-color: #111;
   --title-color: #000;
@@ -16,7 +16,7 @@ body {
   --space: 3.5rem;
   --content-width: 860px;
   --box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
-  --header-height: 80px;
+  --header-height: 60px;
   --radius: 5px;
   --text-color: #111;
   --primary-color:#EB58B9;
@@ -36,7 +36,7 @@ body {
 }
 
 // Override variables for Dark theme
-body[data-theme="dark"] {
+html[data-theme="dark"] body {
   --bg-color: #0d2538;
   --bgColor: #0d2538;
   --bg-content-color: #0f2d44;

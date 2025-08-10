@@ -1,8 +1,44 @@
+# Logs
 *.log
-.cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
 .DS_Store
-src/.temp
+Thumbs.db
+
+# Node
 node_modules
-dist
+
+# Next.js build output
+.next/
+out/
+
+# Build artifacts
+.dist/
+dist/
+coverage/
+
+# Caches
+.cache/
+.next/cache/
+.eslintcache
+
+# Local env
 .env
 .env.*
+*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Project temp
+src/.temp

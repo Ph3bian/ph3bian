@@ -1,0 +1,116 @@
+@import "../../assets/style/mixins";
+
+.history {
+  padding: 5rem 0;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(
+      135deg,
+      var(--title-color),
+      var(--primary-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.work {
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+
+  @include md {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.workCard {
+  background: linear-gradient(
+    135deg,
+    var(--bg-color) 0%,
+    rgba(235, 88, 185, 0.05) 100%
+  );
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+  @include md {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem 0;
+    color: var(--title-color);
+  }
+
+  p {
+    color: var(--body-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+
+    &:last-child {
+      margin-bottom: 0;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.workDescription {
+  width: 100%;
+  text-align: left;
+
+  p {
+    color: var(--body-color);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .history {
+    padding: 3rem 0;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .work {
+    margin-bottom: 2rem;
+  }
+
+  .workCard,
+  .workDescription {
+    padding: 1.5rem;
+  }
+}

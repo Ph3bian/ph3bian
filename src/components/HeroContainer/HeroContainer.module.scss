@@ -1,0 +1,205 @@
+@import "../../assets/style/mixins";
+
+.section {
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  @include md {
+    text-align: left;
+    padding: 1rem 0;
+  }
+}
+
+.card {
+  display: block;
+  min-height: 20em;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include md {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-column-gap: 4em;
+    border-radius: 24px;
+    min-height: 30em;
+    background: var(--bg-content-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0;
+  }
+}
+
+.about {
+  margin: 2em auto;
+  padding: 0.95em;
+
+  @include md {
+    width: 100%;
+    padding: 1.5em 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__connect {
+    padding-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+
+    @include md {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), #ff6b9d);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(235, 88, 185, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+  width: fit-content;
+}
+
+.about h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--title-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+
+  @include md {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--body-color);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+
+  @include md {
+    font-size: 1rem;
+  }
+}
+
+.primaryBtn,
+.secondaryBtn,
+.ctaBtn {
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, var(--primary-color), #ff6b9d);
+  color: white;
+  border: none;
+
+  &:hover {
+    background: linear-gradient(135deg, #d94a9a, #ff5a8a);
+  }
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+
+  &:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+}
+
+.ctaBtn {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  border: none;
+
+  &:hover {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+  background: center / cover no-repeat url("/images/me.png");
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  min-height: 300px;
+
+  @include md {
+    min-height: 100%;
+    border-radius: 0;
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(235, 88, 185, 0.1),
+    rgba(255, 107, 157, 0.1)
+  );
+  animation: fadeIn 1s ease-out 0.8s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
