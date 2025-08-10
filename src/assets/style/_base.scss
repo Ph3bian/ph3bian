@@ -5,6 +5,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--body-color);
@@ -12,17 +16,63 @@ body {
   font-family: var(--font);
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: var(--base-font-size);
+  overflow-x: hidden;
 }
 
 a:not(.button) {
   color: var(--link-color);
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  
   &:hover {
     opacity: 0.8;
+    transform: translateY(-1px);
   }
 }
 
 img {
   max-width: 100%;
+  height: auto;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-color), #ff6b9d);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #d94a9a, #ff5a8a);
+}
+
+// Selection styling
+::selection {
+  background: rgba(235, 88, 185, 0.2);
+  color: var(--text-color);
+}
+
+::-moz-selection {
+  background: rgba(235, 88, 185, 0.2);
+  color: var(--text-color);
+}
+
+// Focus styles
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+// Smooth transitions for all elements
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }

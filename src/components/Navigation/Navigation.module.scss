@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: var(--header-height);
+  padding: 0 calc(var(--space) / 2);
+  top: 0;
+  z-index: 10;
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1300px) {
+    position: sticky;
+    width: 100%;
+    background: var(--bgColor);
+  }
+}
+
+.navLink {
+  color: var(--body-color);
+  text-decoration: none;
+  margin-right: 1.5rem;
+  font-weight: 500;
+  
+  &:hover {
+    color: var(--title-color);
+  }
+}
+
+.sticky {
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
+} 

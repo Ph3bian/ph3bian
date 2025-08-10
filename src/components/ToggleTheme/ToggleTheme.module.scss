@@ -1,0 +1,13 @@
+.toggleTheme {
+  background-color: transparent;
+  border: 0;
+  color: var(--body-color);
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8
+  }
+  &:focus {
+    outline: none;
+  }
+} 

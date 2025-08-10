@@ -1,31 +1,94 @@
-# Ph3bian
+# Phebian Chukwurah - Personal Website
 
-My personal website built with [Gridsome](https://gridsome.org/).
+This is my personal website built with Next.js, featuring a blog with markdown support and a modern, responsive design.
 
+## Features
 
-## Project Description 
+- **Next.js 14** - React framework with static site generation
+- **Markdown Blog** - Write posts in markdown with frontmatter
+- **Responsive Design** - Works on all devices
+- **Dark/Light Theme** - Toggle between themes
+- **Tag System** - Organize posts with tags
+- **SASS Modules** - Scoped styling with CSS modules
+- **Static Generation** - Fast, SEO-friendly static pages
 
-- Work Experience
-- Tools I love to work with
-- More to come
+## Getting Started
 
-## Demo URL
+### Prerequisites
 
-https://gridsome-starter-blog.netlify.com
+- Node.js 18+ 
+- npm or yarn
 
-## Install
+### Installation
 
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd my-site
+```
 
-Get started with Gridsome for your personal projects follow the steps below
+2. Install dependencies:
+```bash
+npm install
+```
 
+3. Run the development server:
+```bash
+npm run dev
+```
 
-### 1. Install Gridsome CLI tool if you don't have
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-`npm install --global @gridsome/cli`
+## Project Structure
 
-### 2. Install this starter
+```
+├── content/
+│   └── posts/          # Markdown blog posts
+├── src/
+│   ├── assets/
+│   │   ├── images/     # Static images
+│   │   └── style/      # SASS styles and variables
+│   ├── components/     # React components
+│   ├── lib/           # Utility functions
+│   └── pages/         # Next.js pages
+├── public/            # Static assets
+└── package.json
+```
 
-1. `gridsome create my-gridsome-site https://github.com/gridsome/gridsome-starter-blog.git`
-2. `cd my-gridsome-site` to open folder
-3. `gridsome develop` to start local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+## Adding Blog Posts
+
+1. Create a new markdown file in `content/posts/`
+2. Add frontmatter with metadata:
+
+```markdown
+---
+title: Your Post Title
+date: 2024-01-01
+tags: ['Tag1', 'Tag2']
+description: "Brief description of your post"
+---
+
+Your post content here...
+```
+
+3. The post will automatically appear on the blog page and be accessible at `/your-post-slug`
+
+## Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Technologies Used
+
+- **Next.js** - React framework
+- **React** - UI library
+- **SASS** - CSS preprocessor
+- **Gray Matter** - Frontmatter parsing
+- **Remark** - Markdown processing
+- **Date-fns** - Date formatting
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
