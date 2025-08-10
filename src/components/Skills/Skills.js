@@ -26,7 +26,7 @@ export default function Skills() {
           </div>
           <div className={styles.category}>
             <h3>Testing & Quality</h3>
-            <p>Quality-first development to ensure features are implemented and extended reliably.</p>
+            <p>Quality first development to ensure features are implemented and extended reliably.</p>
             <ul>
               <li>Unit and integration testing with Jest and React Testing Library</li>
               <li>End-to-end testing with Cypress and Playwright</li>

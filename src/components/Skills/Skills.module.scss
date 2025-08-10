@@ -100,8 +100,8 @@
   background: var(--bg-content-color);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid transparent;
-  border-image: linear-gradient(135deg, var(--primary-color), rgba(235, 88, 185, 0.6)) 1;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--primary-color);
   transition: all 0.3s ease;
   
   &:hover {
