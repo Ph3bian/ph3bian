@@ -2,7 +2,7 @@
 
 .contact {
   padding: 5rem 0 1rem;
- }
+}
 
 .container {
   max-width: 1200px;
@@ -13,17 +13,21 @@
 .header {
   text-align: center;
   margin-bottom: 4rem;
-  
+
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--title-color), var(--primary-color));
+    background: linear-gradient(
+      135deg,
+      var(--title-color),
+      var(--primary-color)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   p {
     font-size: 1.1rem;
     color: var(--body-color);
@@ -36,7 +40,7 @@
   grid-template-columns: 1fr 1.5fr;
   gap: 4rem;
   align-items: start;
-  
+
   @include md {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -57,7 +61,7 @@
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   text-align: center;
-  
+
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
@@ -71,7 +75,7 @@
 }
 
 .infoCard h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--title-color);
@@ -92,7 +96,7 @@
   border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(235, 88, 185, 0.3);
@@ -105,7 +109,7 @@
   border-radius: 20px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
-  
+
   @include md {
     padding: 2rem;
   }
@@ -139,13 +143,13 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   font-family: inherit;
-  
+
   &:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(235, 88, 185, 0.1);
   }
-  
+
   &::placeholder {
     color: var(--body-color);
     opacity: 0.6;
@@ -168,12 +172,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1rem;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(235, 88, 185, 0.3);
   }
-  
+
   &:active {
     transform: translateY(0);
   }
@@ -183,24 +187,24 @@
   .contact {
     padding: 3rem 0;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
-  
+
   .header h2 {
     font-size: 2rem;
   }
-  
+
   .content {
     gap: 2rem;
   }
-  
+
   .contactForm {
     padding: 1.5rem;
   }
-  
+
   .infoCard {
     padding: 1.5rem;
   }
-} 
+}
