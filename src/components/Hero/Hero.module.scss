@@ -1,0 +1,188 @@
+@import "../../assets/style/mixins";
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: clamp(2rem, 5vh, 4rem);
+  padding: calc(var(--header-height) + 3rem) 0 3.5rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeUp 1.2s var(--ease-out) both;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--title-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  &__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 0 0 0 var(--primary-color);
+    animation: pulse 2.4s ease-out infinite;
+  }
+}
+
+.stage {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+
+  @include md {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.title {
+  font-size: clamp(2.7rem, 7.4vw, 7.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  order: 2;
+
+  @include md {
+    order: 0;
+  }
+
+  em {
+    padding-right: 0.06em;
+  }
+}
+
+// Each line slides up from behind a mask
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+
+  > span {
+    display: inline-block;
+    animation: rise 1.3s var(--ease-out) both;
+    animation-delay: var(--d);
+  }
+}
+
+.portrait {
+  position: relative;
+  width: min(52vw, 220px);
+  aspect-ratio: 1;
+  justify-self: center;
+  animation: fadeScale 1.6s var(--ease-out) 0.3s both;
+
+  @include md {
+    width: clamp(200px, 20vw, 300px);
+    justify-self: end;
+  }
+
+  &__blob {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    background: var(--hover-surface);
+    box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.35);
+    animation: morph 14s ease-in-out infinite;
+
+    img {
+      object-fit: cover;
+      filter: saturate(1.05);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.3), transparent 40%);
+      mix-blend-mode: soft-light;
+    }
+  }
+}
+
+.footer {
+  display: grid;
+  gap: 1.75rem;
+  align-items: end;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  animation: fadeUp 1.2s var(--ease-out) 0.6s both;
+
+  @include md {
+    grid-template-columns: minmax(0, 32rem) auto;
+    justify-content: space-between;
+  }
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--body-color);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(105%) rotate(2deg);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85) rotate(-6deg);
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  }
+  33% {
+    border-radius: 58% 42% 38% 62% / 55% 61% 39% 45%;
+  }
+  66% {
+    border-radius: 37% 63% 51% 49% / 37% 45% 55% 63%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 60%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}

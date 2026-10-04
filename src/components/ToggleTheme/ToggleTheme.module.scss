@@ -1,13 +1,21 @@
 .toggleTheme {
-  background-color: transparent;
-  border: 0;
-  color: var(--body-color);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--title-color);
   cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.5s var(--ease-out), color 0.3s;
 
   &:hover {
-    opacity: .8
+    transform: rotate(25deg) scale(1.05);
+    color: var(--primary-color);
   }
-  &:focus {
-    outline: none;
-  }
-} 
+}

@@ -1,31 +1,53 @@
 @import "../../assets/style/mixins";
 
-.main {
-  margin: 0 auto;
-  padding: 1.5vw 1em;
+.app {
+  position: relative;
+  min-height: 100vh;
+}
 
-  @include md {
-    padding: 1.5vw 1.25em;
-  }
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: var(--title-color);
+  color: var(--bg-color);
 
-  @include lg {
-    padding: 1.5vw 5.25em;
+  &:focus {
+    top: 1rem;
   }
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--space) / 2);
-  text-align: center;
-  font-size: 0.8em;
+.main {
+  padding: 0 var(--gutter);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
 
-  > span {
-    margin: 0 0.35em;
+.footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--muted-color);
+  border-top: 1px solid var(--border-color);
+
+  &__note {
+    font-size: 0.8rem;
   }
 
-  a {
-    color: currentColor;
+  &__top {
+    color: var(--muted-color);
+
+    &:hover {
+      color: var(--primary-color);
+    }
   }
 }

@@ -1,0 +1,58 @@
+@import "../../assets/style/mixins";
+
+.about {
+  display: grid;
+  gap: 2rem;
+  padding: clamp(6rem, 14vh, 10rem) 0;
+
+  @include md {
+    grid-template-columns: 1fr 3fr;
+    gap: 3rem;
+  }
+}
+
+.label {
+  padding-top: 0.9rem;
+}
+
+.statement {
+  font-size: clamp(1.75rem, 3.4vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--title-color);
+
+  span {
+    opacity: clamp(0.14, calc((var(--p, 0) * var(--n) * 1.15) - var(--i) + 1), 1);
+    transition: opacity 0.25s linear;
+  }
+}
+
+.stats {
+  display: grid;
+  gap: 1rem;
+
+  @include md {
+    grid-column: 2;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+
+  dt {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--title-color);
+    margin-bottom: 0.5rem;
+  }
+
+  dd {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+  }
+}

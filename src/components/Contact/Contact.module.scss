@@ -1,0 +1,85 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+  padding: clamp(6rem, 16vh, 11rem) 0 clamp(4rem, 10vh, 7rem);
+}
+
+.title {
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 6vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+
+  em {
+    color: var(--title-color);
+  }
+}
+
+// Big glossy liquid droplet
+.orb {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: clamp(7.5rem, 11vw, 9.5rem);
+  aspect-ratio: 1;
+  color: var(--bg-color);
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55) 0 4%, transparent 16%),
+    radial-gradient(circle at 50% 55%, var(--title-color), color-mix(in srgb, var(--title-color) 80%, var(--bg-color)) 80%);
+  box-shadow: inset -12px -18px 30px rgba(0, 0, 0, 0.25), inset 10px 10px 24px rgba(255, 255, 255, 0.12),
+    0 30px 60px -24px rgba(0, 0, 0, 0.45);
+  animation: morph 10s ease-in-out infinite;
+  transition: transform 0.6s var(--ease-out);
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  span {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  small {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+
+  a {
+    color: var(--title-color);
+    font-weight: 500;
+    background-image: linear-gradient(var(--primary-color), var(--primary-color));
+    background-size: 0 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s var(--ease-out), color 0.3s;
+
+    &:hover {
+      color: var(--primary-color);
+      background-size: 100% 1px;
+    }
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  }
+  50% {
+    border-radius: 58% 42% 40% 60% / 56% 48% 52% 44%;
+  }
+}

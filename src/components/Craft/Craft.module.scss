@@ -1,0 +1,102 @@
+@import "../../assets/style/mixins";
+
+.craft {
+  padding: clamp(4rem, 10vh, 8rem) 0;
+}
+
+.header {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  @include md {
+    grid-template-columns: 1fr 3fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+    line-height: 1;
+
+    em {
+      color: var(--title-color);
+    }
+  }
+}
+
+.list {
+  list-style: none;
+  border-top: 1px solid var(--border-color);
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.25rem;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  isolation: isolate;
+  overflow: hidden;
+
+  @include md {
+    grid-template-columns: 4rem 1fr 1.3fr;
+    align-items: start;
+    padding: 2.75rem 1.5rem;
+  }
+
+  // Liquid fill that rises on hover
+  &::before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    top: 100%;
+    height: 220%;
+    z-index: -1;
+    border-radius: 45% 45% 0 0 / 30% 30% 0 0;
+    background: var(--hover-surface);
+    transition: top 0.8s var(--ease-liquid), border-radius 0.8s var(--ease-liquid);
+  }
+
+  &:hover::before {
+    top: -10%;
+    border-radius: 0;
+  }
+
+  &:hover .title {
+    transform: translateX(0.4rem);
+  }
+}
+
+.index {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted-color);
+  padding-top: 0.55rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  transition: transform 0.6s var(--ease-out);
+}
+
+.detail {
+  grid-column: 1 / -1;
+
+  @include md {
+    grid-column: auto;
+    padding-top: 0.5rem;
+  }
+
+  p {
+    color: var(--body-color);
+    margin-bottom: 1rem;
+  }
+}
+
+.tags {
+  font-size: 0.85rem;
+  color: var(--muted-color);
+}
