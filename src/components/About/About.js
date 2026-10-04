@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import styles from './About.module.scss'
 
 const statement =
-  'I care about the small things — the focus ring, the loading state, the millisecond saved. I build interfaces that are accessible to everyone, kind on slow networks, and a joy to maintain long after launch.'
+  'I care about the small things: the focus ring, the loading state, the millisecond saved. I build interfaces that are accessible to everyone, kind on slow networks, and a joy to maintain long after launch.'
 
 const stats = [
   { value: '8+', label: 'Years building for the web' },

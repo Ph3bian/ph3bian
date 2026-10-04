@@ -15,6 +15,7 @@ export default function Hero() {
 
       <div className={styles.stage}>
         <h1 id="hero-title" className={styles.title}>
+          <span className="visually-hidden">Phebian Chukwurah, frontend engineer: </span>
           <span className={styles.line}><span style={{ '--d': '0.1s' }}>Interfaces that</span></span>
           <span className={styles.line}><span style={{ '--d': '0.22s' }}>feel <em>effortless,</em></span></span>
           <span className={styles.line}><span style={{ '--d': '0.34s' }}>built with <em>care.</em></span></span>

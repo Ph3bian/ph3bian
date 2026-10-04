@@ -4,7 +4,7 @@
   align-items: center;
   text-align: center;
   gap: 2.5rem;
-  padding: clamp(6rem, 16vh, 11rem) 0 clamp(4rem, 10vh, 7rem);
+  padding: clamp(6rem, 16vh, 11rem) 0 clamp(3rem, 8vh, 5rem);
 }
 
 .title {
@@ -28,12 +28,12 @@
   gap: 0.2rem;
   width: clamp(7.5rem, 11vw, 9.5rem);
   aspect-ratio: 1;
-  color: var(--bg-color);
+  color: #fff;
   border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
-  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55) 0 4%, transparent 16%),
-    radial-gradient(circle at 50% 55%, var(--title-color), color-mix(in srgb, var(--title-color) 80%, var(--bg-color)) 80%);
-  box-shadow: inset -12px -18px 30px rgba(0, 0, 0, 0.25), inset 10px 10px 24px rgba(255, 255, 255, 0.12),
-    0 30px 60px -24px rgba(0, 0, 0, 0.45);
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.75) 0 5%, transparent 20%),
+    linear-gradient(140deg, #ff9fd6, var(--primary-color) 60%, var(--primary-deep));
+  box-shadow: inset -12px -18px 30px rgba(160, 30, 110, 0.25), inset 10px 10px 24px rgba(255, 255, 255, 0.3),
+    0 30px 60px -24px color-mix(in srgb, var(--primary-color) 70%, transparent);
   animation: morph 10s ease-in-out infinite;
   transition: transform 0.6s var(--ease-out);
 

@@ -3,40 +3,40 @@ html {
   --base-font-size: 18px;
 }
 
-// Light default theme
+// Light default theme: breezy white, soft greys, pink accent
 body {
-  --bg-color: #f6f4f1;
-  --bgColor: #f6f4f1;
-  --bg-content-color: rgba(255, 255, 255, 0.42);
-  --bg-code: #fbfaf8;
-  --body-color: #4a4547;
-  --title-color: #151314;
-  --text-color: #151314;
-  --muted-color: rgba(21, 19, 20, 0.52);
-  --link-color: #151314;
-  --border-color: rgba(21, 19, 20, 0.1);
-  --hover-surface: rgba(21, 19, 20, 0.04);
+  --bg-color: #fcfafb;
+  --bgColor: #fcfafb;
+  --bg-content-color: rgba(255, 255, 255, 0.6);
+  --bg-code: #f7f3f5;
+  --body-color: #6a6368;
+  --title-color: #47414a;
+  --text-color: #47414a;
+  --muted-color: #7f787d;
+  --link-color: #47414a;
+  --border-color: rgba(71, 65, 74, 0.1);
+  --hover-surface: rgba(235, 88, 185, 0.06);
   --primary-color: #eb58b9;
-  --primary-deep: #c42d8f;
-  --primary-soft: #fbe3ef;
-  --blush: #fdf1f6;
+  --primary-deep: #d2449f;
+  --primary-soft: #fbe1ef;
+  --blush: #fdf2f8;
   --bg-button-color: #eb58b9;
 
   // Liquid glass
-  --glass-bg: rgba(255, 255, 255, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.75);
-  --glass-shadow: 0 18px 50px -24px rgba(21, 19, 20, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  --blob-a: #f4cfe0;
-  --blob-b: #e8e2da;
-  --blob-c: #e2e0ec;
-  --blob-opacity: 0.6;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 18px 50px -24px rgba(120, 90, 110, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --blob-a: #f9c4e1;
+  --blob-b: #f4dcea;
+  --blob-c: #e4e1e8;
+  --blob-opacity: 0.75;
 
   --space: 3.5rem;
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --content-width: 860px;
   --max-width: 1360px;
-  --box-shadow: 0 10px 30px -12px rgba(21, 19, 20, 0.16);
+  --box-shadow: 0 10px 30px -12px rgba(120, 90, 110, 0.18);
   --header-height: 72px;
   --radius: 14px;
 
@@ -57,32 +57,32 @@ body {
   }
 }
 
-// Override variables for Dark theme
+// Dark theme: soft graphite rather than black
 html[data-theme="dark"] body {
-  --bg-color: #0f0e0f;
-  --bgColor: #0f0e0f;
-  --bg-content-color: rgba(255, 255, 255, 0.04);
-  --bg-code: rgba(255, 255, 255, 0.04);
+  --bg-color: #2a272b;
+  --bgColor: #2a272b;
+  --bg-content-color: rgba(255, 255, 255, 0.05);
+  --bg-code: rgba(255, 255, 255, 0.05);
   --border-color: rgba(255, 255, 255, 0.1);
-  --hover-surface: rgba(255, 255, 255, 0.04);
-  --body-color: #c9c4c6;
-  --title-color: #f4f1f2;
-  --text-color: #f4f1f2;
-  --muted-color: rgba(244, 241, 242, 0.5);
-  --link-color: #f4f1f2;
-  --primary-color: #ff6fc6;
+  --hover-surface: rgba(255, 140, 210, 0.08);
+  --body-color: #cfc8cd;
+  --title-color: #f5f1f3;
+  --text-color: #f5f1f3;
+  --muted-color: #ada5ab;
+  --link-color: #f5f1f3;
+  --primary-color: #ff7fcb;
   --primary-deep: #eb58b9;
-  --primary-soft: #3a1a2c;
-  --blush: #1c1418;
-  --bg-button-color: #ff6fc6;
+  --primary-soft: #5a3550;
+  --blush: #33282f;
+  --bg-button-color: #ff7fcb;
 
-  --glass-bg: rgba(255, 255, 255, 0.045);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 18px 50px -20px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  --blob-a: #3b1a2d;
-  --blob-b: #1e1c20;
-  --blob-c: #211f2a;
-  --blob-opacity: 0.7;
-  --box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 18px 50px -24px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --blob-a: #6b3a5c;
+  --blob-b: #4a3446;
+  --blob-c: #3d3a45;
+  --blob-opacity: 0.6;
+  --box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.4);
 }

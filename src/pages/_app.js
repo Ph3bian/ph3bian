@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#f6f4f1" />
+        <meta name="theme-color" content="#f8f4f6" />
         <meta property="og:site_name" content={siteName} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

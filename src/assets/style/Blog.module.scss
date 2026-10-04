@@ -58,7 +58,6 @@
   gap: 0.5rem;
   margin-bottom: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
 }
 
 .chip {
@@ -81,8 +80,8 @@
 }
 
 .chipActive {
-  background: var(--title-color);
-  color: var(--bg-color);
+  background: var(--primary-color);
+  color: #fff;
   border-color: transparent;
 }
 

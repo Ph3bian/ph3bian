@@ -10,9 +10,12 @@ const postsDirectory = path.join(process.cwd(), 'content/posts')
 // Posts with `published: false` are drafts: visible in development, hidden in production
 const showDrafts = process.env.NODE_ENV !== 'production'
 
+function wordCount(markdown) {
+  return markdown.trim().split(/\s+/).length
+}
+
 function readingTime(markdown) {
-  const words = markdown.trim().split(/\s+/).length
-  return Math.max(1, Math.round(words / 220))
+  return Math.max(1, Math.round(wordCount(markdown) / 220))
 }
 
 export function getSortedPostsData() {
@@ -87,7 +90,9 @@ export async function getPostData(slug) {
     contentHtml,
     ...matterResult.data,
     date: isoDate,
+    updated: matterResult.data?.updated ? new Date(matterResult.data.updated).toISOString() : null,
     readingTime: readingTime(matterResult.content),
+    wordCount: wordCount(matterResult.content),
   }
 }
 

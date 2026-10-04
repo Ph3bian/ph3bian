@@ -28,7 +28,6 @@
   gap: 1.25rem;
   margin-bottom: 3.5rem;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border-color);
   animation: fadeUp 1.1s var(--ease-out) both;
 }
 
@@ -92,7 +91,6 @@
   ul {
     list-style: none;
     margin-top: 1rem;
-    border-top: 1px solid var(--border-color);
   }
 }
 
@@ -101,7 +99,8 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border-color);
+  padding-inline: 0.75rem;
+  border-radius: 14px;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: -0.025em;
@@ -110,8 +109,8 @@
   transition: color 0.3s, padding 0.5s var(--ease-out);
 
   &:hover {
-    color: var(--muted-color);
-    padding-left: 0.75rem;
+    background: var(--hover-surface);
+    padding-left: 1.25rem;
   }
 }
 
@@ -119,5 +118,36 @@
   from {
     opacity: 0;
     transform: translateY(24px);
+  }
+}
+
+.faq {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 28px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__item + &__item {
+    margin-top: 1.5rem;
+  }
+
+  dt {
+    font-weight: 600;
+    color: var(--title-color);
+    margin-bottom: 0.4rem;
+  }
+
+  dd {
+    color: var(--body-color);
+    line-height: 1.7;
   }
 }

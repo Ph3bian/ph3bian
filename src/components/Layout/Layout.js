@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import Link from 'next/link'
 import Navigation from '../Navigation'
 import LiquidBackground from '../LiquidBackground'
+import Footer from '../Footer'
 import styles from './Layout.module.scss'
 
 export default function Layout({ children }) {
@@ -33,13 +33,7 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      <footer className={styles.footer}>
-        <span>© {new Date().getFullYear()} Phebian Chukwurah</span>
-        <span className={styles.footer__note}>Designed &amp; built with care</span>
-        <Link href="#app" className={styles.footer__top}>
-          Back to top ↑
-        </Link>
-      </footer>
+      <Footer />
     </div>
   )
 }

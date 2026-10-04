@@ -25,29 +25,3 @@
   max-width: var(--max-width);
   margin: 0 auto;
 }
-
-.footer {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2rem var(--gutter) 2.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 2rem;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  color: var(--muted-color);
-  border-top: 1px solid var(--border-color);
-
-  &__note {
-    font-size: 0.8rem;
-  }
-
-  &__top {
-    color: var(--muted-color);
-
-    &:hover {
-      color: var(--primary-color);
-    }
-  }
-}

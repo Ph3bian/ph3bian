@@ -6,6 +6,7 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="alternate" type="application/rss+xml" title="Phebian Chukwurah · Writing" href="/rss.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

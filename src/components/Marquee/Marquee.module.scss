@@ -3,7 +3,6 @@
   margin: 2rem calc(var(--gutter) * -1);
   padding: 1.25rem 0;
   overflow: hidden;
-  border-block: 1px solid var(--border-color);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 
   @media (min-width: 1360px) {

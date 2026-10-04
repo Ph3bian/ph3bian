@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "seo": "node scripts/generate-seo.mjs",
+    "predev": "node scripts/generate-seo.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/generate-seo.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

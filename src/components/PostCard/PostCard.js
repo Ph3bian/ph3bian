@@ -6,7 +6,7 @@ import styles from './PostCard.module.scss'
 function swatch(slug) {
   let h = 0
   for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) % 360
-  return { '--h1': `${320 + (h % 30)}deg`, '--h2': `${(h % 50) + 10}deg`, '--rot': `${h}deg` }
+  return { '--h1': `${318 + (h % 22)}deg`, '--rot': `${h}deg` }
 }
 
 export default function PostCard({ post, featured = false }) {

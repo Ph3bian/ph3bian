@@ -27,7 +27,7 @@ export default function LatestWriting({ posts = [] }) {
           ))}
         </ul>
       ) : (
-        <p className={styles.empty}>First notes are brewing — check back soon.</p>
+        <p className={styles.empty}>First notes are brewing. Check back soon.</p>
       )}
 
       <div className={styles.more}>

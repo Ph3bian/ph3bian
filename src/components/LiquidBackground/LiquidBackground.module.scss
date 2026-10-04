@@ -6,6 +6,25 @@
   pointer-events: none;
 }
 
+// Wrappers carry the pointer offset so the blobs' own drift animation is untouched
+.follow {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(calc(var(--px, 0) * var(--k) * 1vw), calc(var(--py, 0) * var(--k) * 1vh), 0);
+}
+
+.followA {
+  --k: 18;
+}
+
+.followB {
+  --k: -12;
+}
+
+.followC {
+  --k: 26;
+}
+
 .blob {
   position: absolute;
   width: 46vmax;

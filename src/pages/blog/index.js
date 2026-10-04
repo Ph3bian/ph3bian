@@ -1,9 +1,12 @@
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import PostCard from '../../components/PostCard'
 import { getSortedPostsData } from '../../lib/posts'
-import { buildCanonical } from '../../lib/seo'
+import Seo from '../../components/Seo'
+import { breadcrumbSchema, buildCanonical, personSchema } from '../../lib/seo'
+
+const description =
+  'Writing by Phebian Chukwurah on frontend engineering, accessibility, performance, building with AI and the craft of making interfaces feel considered.'
 import styles from '../../assets/style/Blog.module.scss'
 
 export default function Blog({ posts, tags }) {
@@ -20,17 +23,33 @@ export default function Blog({ posts, tags }) {
 
   return (
     <>
-      <Head>
-        <title>Writing · Phebian Chukwurah</title>
-        <meta name="description" content="Notes on frontend engineering, accessibility, performance and craft." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href={buildCanonical('/blog')} />
-      </Head>
+      <Seo
+        title="Writing · Phebian Chukwurah"
+        description={description}
+        path="/blog"
+        schema={[
+          {
+            '@type': 'Blog',
+            '@id': `${buildCanonical('/blog')}#blog`,
+            name: 'Writing by Phebian Chukwurah',
+            description,
+            url: buildCanonical('/blog'),
+            author: personSchema(),
+            blogPost: posts.map((p) => ({
+              '@type': 'BlogPosting',
+              headline: p.title,
+              url: buildCanonical(`/blog/${p.slug}`),
+              datePublished: p.date,
+            })),
+          },
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Writing', path: '/blog' }]),
+        ]}
+      />
 
       <Layout>
         <section className={styles.blog}>
           <header className={styles.header}>
-            <span className="eyebrow">Journal — {posts.length} {posts.length === 1 ? 'note' : 'notes'}</span>
+            <span className="eyebrow">Journal · {posts.length} {posts.length === 1 ? 'note' : 'notes'}</span>
             <h1 className={styles.title}>
               <span className={styles.line}><span>Writing</span></span>
             </h1>
@@ -71,7 +90,7 @@ export default function Blog({ posts, tags }) {
               ))}
             </div>
           ) : (
-            <p className={styles.empty}>Nothing here yet — new notes are on the way.</p>
+            <p className={styles.empty}>Nothing here yet. New notes are on the way.</p>
           )}
         </section>
       </Layout>
