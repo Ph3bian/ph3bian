@@ -7,6 +7,14 @@ import prism from 'remark-prism'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 
+// Posts with `published: false` are drafts: visible in development, hidden in production
+const showDrafts = process.env.NODE_ENV !== 'production'
+
+function readingTime(markdown) {
+  const words = markdown.trim().split(/\s+/).length
+  return Math.max(1, Math.round(words / 220))
+}
+
 export function getSortedPostsData() {
   // Get only markdown file names under /content/posts
   const fileNames = fs
@@ -35,8 +43,10 @@ export function getSortedPostsData() {
       slug: id,
       ...matterResult.data,
       date: isoDate,
+      readingTime: readingTime(matterResult.content),
     }
   })
+  .filter((post) => showDrafts || post.published !== false)
 
   // Sort posts by date (newest first)
   return allPostsData.sort((a, b) => {
@@ -47,16 +57,9 @@ export function getSortedPostsData() {
 }
 
 export function getAllPostIds() {
-  const fileNames = fs
-    .readdirSync(postsDirectory)
-    .filter((fileName) => fileName.endsWith('.md'))
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        slug: fileName.replace(/\.md$/, ''),
-      },
-    }
-  })
+  return getSortedPostsData().map((post) => ({
+    params: { slug: post.slug },
+  }))
 }
 
 export async function getPostData(slug) {
@@ -68,8 +71,8 @@ export async function getPostData(slug) {
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
-    .use(html)
     .use(prism)
+    .use(html, { sanitize: false })
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
@@ -84,6 +87,7 @@ export async function getPostData(slug) {
     contentHtml,
     ...matterResult.data,
     date: isoDate,
+    readingTime: readingTime(matterResult.content),
   }
 }
 

@@ -1,20 +1,12 @@
-
-
 html {
   font-size: var(--base-font-size);
 }
 
 body {
-  font-family: "Nanum Myeongjo", serif;
+  font-family: var(--font);
   font-weight: 400;
   line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-
-p {
-  margin-bottom: 1.5em;
-  color: var(--text-color);
-  font-size: 1.05em;
+  letter-spacing: -0.005em;
 }
 
 h1,
@@ -22,121 +14,157 @@ h2,
 h3,
 h4,
 h5 {
-  transition: color 0.6s;
   color: var(--title-color);
-  margin: 2.5rem 0 1.25rem;
-  font-family: "Nanum Myeongjo", serif;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 2.5em;
-  font-weight: 800;
-}
-
-h2 {
-  font-size: 2em;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1.25em;
-  font-weight: 600;
-}
-
-h5 {
-  font-size: 1.1em;
-  font-weight: 600;
-}
-
-small {
-  font-size: 0.875em;
-  opacity: 0.8;
+// Emphasis inside headings is a quieter tone rather than italics
+h1 em,
+h2 em,
+h3 em {
+  font-style: normal;
+  color: var(--muted-color) !important;
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--title-color);
 }
 
-blockquote {
-  border-left: 4px solid var(--primary-color);
-  padding: 1rem 0 1rem 2rem;
-  margin: 2rem 0;
-  background: linear-gradient(135deg, rgba(235, 88, 185, 0.05), rgba(255, 107, 157, 0.05));
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-  color: var(--title-color);
-  
-  p {
-    margin-bottom: 0;
+// Small uppercase label, e.g. "(01) About"
+.eyebrow {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+// Long-form markdown content
+.prose {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--body-color);
+
+  > * + * {
+    margin-top: 1.4em;
   }
-}
 
-em {
-  font-style: italic;
-  color: var(--primary-color);
-}
+  h2,
+  h3,
+  h4 {
+    margin-top: 2.2em;
+    margin-bottom: -0.4em;
+  }
 
-ul {
-  list-style-type: none;
-  margin-left: 0;
-  margin-bottom: 1.5em;
-  
-  li {
-    margin-bottom: 0.75em;
-    padding-left: 1.5rem;
-    position: relative;
-    
-    &::before {
-      content: '•';
-      color: var(--primary-color);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-      top: 0;
+  h2 {
+    font-size: 2.2em;
+  }
+
+  h3 {
+    font-size: 1.7em;
+  }
+
+  h4 {
+    font-size: 1.3em;
+  }
+
+  a {
+    color: var(--title-color);
+    background-image: linear-gradient(var(--primary-color), var(--primary-color));
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-out), color 0.3s;
+
+    &:hover {
+      background-size: 100% 40%;
+      background-image: linear-gradient(var(--primary-soft), var(--primary-soft));
     }
   }
-}
 
-ol {
-  list-style-type: decimal;
-  margin-left: 1.5em;
-  margin-bottom: 1.5em;
-  
-  li {
-    margin-bottom: 0.75em;
-    padding-left: 0.5rem;
+  em {
+    color: var(--title-color);
   }
-}
 
-// Additional utility classes
-.text-gradient {
-  background: linear-gradient(135deg, var(--title-color), var(--primary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+  blockquote {
+    font-size: 1.3em;
+    line-height: 1.45;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--title-color);
+    padding-left: 1.25em;
+    border-left: 2px solid var(--primary-color);
+  }
 
-.text-center {
-  text-align: center;
-}
+  ul,
+  ol {
+    padding-left: 1.4em;
 
-.text-muted {
-  opacity: 0.7;
-}
+    li + li {
+      margin-top: 0.5em;
+    }
+  }
 
-.lead {
-  font-size: 1.25em;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--body-color);
+  ul {
+    list-style: none;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -1.1em;
+        top: 0.75em;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary-color);
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+
+    li::marker {
+      color: var(--muted-color);
+      font-weight: 500;
+    }
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 3em 0;
+  }
+
+  img {
+    border-radius: var(--radius);
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.9em;
+    display: block;
+    overflow-x: auto;
+
+    th,
+    td {
+      padding: 0.6em 0.9em;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--title-color);
+    }
+  }
 }

@@ -1,0 +1,73 @@
+.liquid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  filter: blur(70px);
+  opacity: var(--blob-opacity);
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  will-change: transform, border-radius;
+  transition: background 0.6s;
+}
+
+.blobA {
+  top: -18vmax;
+  right: -12vmax;
+  background: radial-gradient(circle at 30% 30%, var(--blob-a), transparent 70%);
+  animation: morph 22s ease-in-out infinite, driftA 28s ease-in-out infinite;
+}
+
+.blobB {
+  bottom: -20vmax;
+  left: -14vmax;
+  background: radial-gradient(circle at 60% 40%, var(--blob-b), transparent 70%);
+  animation: morph 26s ease-in-out infinite reverse, driftB 32s ease-in-out infinite;
+}
+
+.blobC {
+  top: 35%;
+  left: 40%;
+  width: 34vmax;
+  height: 34vmax;
+  background: radial-gradient(circle at 50% 50%, var(--blob-c), transparent 70%);
+  opacity: calc(var(--blob-opacity) * 0.6);
+  animation: morph 30s ease-in-out infinite, driftC 36s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  }
+  33% {
+    border-radius: 63% 37% 38% 62% / 55% 61% 39% 45%;
+  }
+  66% {
+    border-radius: 37% 63% 51% 49% / 37% 35% 65% 63%;
+  }
+}
+
+@keyframes driftA {
+  50% {
+    transform: translate(-8vw, 10vh) rotate(40deg);
+  }
+}
+
+@keyframes driftB {
+  50% {
+    transform: translate(10vw, -8vh) rotate(-30deg);
+  }
+}
+
+@keyframes driftC {
+  50% {
+    transform: translate(-14vw, -12vh) scale(1.2);
+  }
+}

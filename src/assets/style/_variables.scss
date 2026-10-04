@@ -1,51 +1,88 @@
 // Default variables
 html {
-  --base-font-size: 20px;
+  --base-font-size: 18px;
 }
 
 // Light default theme
 body {
-  --bg-color:#f8edf3;
-  --bgColor:#f8edf3;
-  --bg-content-color: rgba(255, 255, 255, 0.35);
-  --bg-code: #fffbf3;
-  --body-color: #111;
-  --title-color: #000;
-  --link-color: #EB58B9;
-  --border-color: rgba(0, 0, 0, 0.1);
+  --bg-color: #f6f4f1;
+  --bgColor: #f6f4f1;
+  --bg-content-color: rgba(255, 255, 255, 0.42);
+  --bg-code: #fbfaf8;
+  --body-color: #4a4547;
+  --title-color: #151314;
+  --text-color: #151314;
+  --muted-color: rgba(21, 19, 20, 0.52);
+  --link-color: #151314;
+  --border-color: rgba(21, 19, 20, 0.1);
+  --hover-surface: rgba(21, 19, 20, 0.04);
+  --primary-color: #eb58b9;
+  --primary-deep: #c42d8f;
+  --primary-soft: #fbe3ef;
+  --blush: #fdf1f6;
+  --bg-button-color: #eb58b9;
+
+  // Liquid glass
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-shadow: 0 18px 50px -24px rgba(21, 19, 20, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --blob-a: #f4cfe0;
+  --blob-b: #e8e2da;
+  --blob-c: #e2e0ec;
+  --blob-opacity: 0.6;
+
   --space: 3.5rem;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
   --content-width: 860px;
-  --box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
-  --header-height: 60px;
-  --radius: 5px;
-  --text-color: #111;
-  --primary-color:#EB58B9;
-  --bg-button-color:#eb58b9ad;
-  --font:'Nanum Myeongjo', serif;
+  --max-width: 1360px;
+  --box-shadow: 0 10px 30px -12px rgba(21, 19, 20, 0.16);
+  --header-height: 72px;
+  --radius: 14px;
+
+  --font: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-liquid: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-// Make  things smaller for mobile
+// Make things smaller for mobile
 @media screen and (max-width: 650px) {
   html {
-    --base-font-size: 17px;
+    --base-font-size: 16px;
   }
   body {
     --space: 1.5rem;
-    --header-height: 60px;
+    --header-height: 64px;
   }
 }
 
 // Override variables for Dark theme
 html[data-theme="dark"] body {
-  --bg-color: #0d2538;
-  --bgColor: #0d2538;
-  --bg-content-color: #0f2d44;
-  --bg-code: rgba(0, 0, 0, 0.3);
+  --bg-color: #0f0e0f;
+  --bgColor: #0f0e0f;
+  --bg-content-color: rgba(255, 255, 255, 0.04);
+  --bg-code: rgba(255, 255, 255, 0.04);
   --border-color: rgba(255, 255, 255, 0.1);
-  --body-color: #ced8de;
-  --title-color: #fff;
-  --link-color: #0088BA;
-  --text-color: #fff;
-  --bg-button-color:#0088BA;
-  --box-shadow: 1px 3px 6px rgba(255, 255, 255, 0.13);
+  --hover-surface: rgba(255, 255, 255, 0.04);
+  --body-color: #c9c4c6;
+  --title-color: #f4f1f2;
+  --text-color: #f4f1f2;
+  --muted-color: rgba(244, 241, 242, 0.5);
+  --link-color: #f4f1f2;
+  --primary-color: #ff6fc6;
+  --primary-deep: #eb58b9;
+  --primary-soft: #3a1a2c;
+  --blush: #1c1418;
+  --bg-button-color: #ff6fc6;
+
+  --glass-bg: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 18px 50px -20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --blob-a: #3b1a2d;
+  --blob-b: #1e1c20;
+  --blob-c: #211f2a;
+  --blob-opacity: 0.7;
+  --box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
 }

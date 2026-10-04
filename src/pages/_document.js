@@ -6,6 +6,12 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
