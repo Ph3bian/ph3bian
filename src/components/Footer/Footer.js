@@ -95,7 +95,7 @@ export default function Footer() {
               )}
             </li>
           ))}
-          <li>Copyright © {new Date().getFullYear()}</li>
+          <li><span>Copyright © {new Date().getFullYear()}</span></li>
           <li>
             <a href="#app">Back to top <span aria-hidden="true">↑</span></a>
           </li>

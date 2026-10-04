@@ -9,7 +9,12 @@
   display: flex;
   justify-content: center;
   padding: 1rem var(--gutter);
-  transition: padding 0.5s var(--ease-out);
+  transition: padding 0.5s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+// Slides up out of the way while reading; drips back in on scroll up
+.hidden {
+  transform: translateY(-130%);
 }
 
 .bar {
@@ -19,11 +24,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.45rem 0.45rem 0.45rem 0.6rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.55rem;
   border-radius: 999px;
   border: 1px solid transparent;
-  transition: max-width 0.7s var(--ease-out), background 0.5s, border-color 0.5s,
-    box-shadow 0.5s, backdrop-filter 0.5s;
+  transition: max-width 0.8s var(--ease-out), background 0.5s, border-color 0.5s, box-shadow 0.5s;
 }
 
 // Liquid glass pill once the page has scrolled
@@ -31,7 +35,7 @@
   padding-top: 0.75rem;
 
   .bar {
-    max-width: 720px;
+    max-width: 640px;
     background: var(--glass-bg);
     border-color: var(--glass-border);
     box-shadow: var(--glass-shadow);
@@ -49,16 +53,22 @@
   &__mark {
     display: grid;
     place-items: center;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.3rem;
+    height: 2.3rem;
     border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
     background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.75) 0 5%, transparent 20%),
-    linear-gradient(140deg, #ff9fd6, var(--primary-color) 60%, var(--primary-deep));
+      linear-gradient(140deg, #ff9fd6, var(--primary-color) 60%, var(--primary-deep));
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
     box-shadow: inset 0 -4px 10px rgba(160, 30, 110, 0.2), inset 0 3px 6px rgba(255, 255, 255, 0.35);
     animation: wobble 10s ease-in-out infinite;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  &:hover &__mark {
+    animation-duration: 1.6s;
+    transform: rotate(-12deg) scale(1.08);
   }
 
   &__text {
@@ -69,6 +79,7 @@
 
     em {
       color: var(--primary-color);
+      font-style: normal;
     }
 
     @include md {
@@ -78,31 +89,85 @@
 }
 
 .links {
-  display: flex;
-  gap: 0.15rem;
-  list-style: none;
+  position: relative;
+
+  ul {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    list-style: none;
+  }
+}
+
+// Liquid indicator
+.liquid {
+  position: absolute;
+  inset: 0;
+  filter: url(#nav-goo);
+  pointer-events: none;
+}
+
+.blob,
+.drop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--w);
+  border-radius: 999px;
+  background: linear-gradient(140deg, #ff9fd6, var(--primary-color));
+  transform: translateX(var(--x)) scale(0.4);
+  opacity: 0;
+}
+
+.blob {
+  transition: transform 0.6s cubic-bezier(0.5, 1.6, 0.4, 0.8), width 0.6s cubic-bezier(0.5, 1.6, 0.4, 0.8),
+    opacity 0.3s;
+}
+
+// Lags behind, so the goo filter stretches a liquid bridge between the two
+.drop {
+  transition: transform 0.95s var(--ease-out), width 0.95s var(--ease-out), opacity 0.45s;
+}
+
+.liquidOn {
+  .blob {
+    opacity: 1;
+    transform: translateX(var(--x)) scale(1);
+  }
+
+  .drop {
+    opacity: 1;
+    transform: translateX(var(--x)) scale(0.75);
+  }
 }
 
 .link {
-  position: relative;
   display: inline-block;
-  padding: 0.45rem 0.55rem;
-  border-radius: 999px;
+  padding: 0.5rem 0.65rem;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--body-color);
-  transition: color 0.3s, background 0.4s var(--ease-out);
+  transition: color 0.35s var(--ease-out);
 
   @include md {
-    padding: 0.5rem 1rem;
+    padding: 0.55rem 1.05rem;
     font-size: 0.9rem;
   }
 
-  &:hover,
-  &.active {
+  &:hover {
     color: var(--title-color);
-    background: var(--hover-surface);
   }
+
+  &.on {
+    color: #fff;
+  }
+}
+
+.filters {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 @keyframes wobble {

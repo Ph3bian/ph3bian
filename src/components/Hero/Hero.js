@@ -23,7 +23,7 @@ export default function Hero() {
 
         <div className={styles.portrait}>
           <div className={styles.portrait__blob}>
-            <Image src="/images/me.png" alt="Portrait of Phebian Chukwurah" fill sizes="(min-width: 769px) 26vw, 60vw" priority />
+            <Image src="/images/phebian.png" alt="Portrait of Phebian Chukwurah" fill sizes="(min-width: 769px) 26vw, 60vw" priority />
           </div>
         </div>
       </div>
