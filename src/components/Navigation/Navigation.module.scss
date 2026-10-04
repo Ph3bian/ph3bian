@@ -1,36 +1,116 @@
+@import "../../assets/style/mixins";
+
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 1rem var(--gutter);
+  transition: padding 0.5s var(--ease-out);
+}
 
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
-  }
+.bar {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0.45rem 0.45rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: max-width 0.7s var(--ease-out), background 0.5s, border-color 0.5s,
+    box-shadow 0.5s, backdrop-filter 0.5s;
+}
 
-  @media screen and (min-width: 1300px) {
-    position: sticky;
-    width: 100%;
-    background: var(--bgColor);
+// Liquid glass pill once the page has scrolled
+.scrolled {
+  padding-top: 0.75rem;
+
+  .bar {
+    max-width: 720px;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
 }
 
-.navLink {
-  color: var(--body-color);
-  text-decoration: none;
-  margin-right: 1.5rem;
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--title-color);
+
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.75) 0 5%, transparent 20%),
+    linear-gradient(140deg, #ff9fd6, var(--primary-color) 60%, var(--primary-deep));
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: inset 0 -4px 10px rgba(160, 30, 110, 0.2), inset 0 3px 6px rgba(255, 255, 255, 0.35);
+    animation: wobble 10s ease-in-out infinite;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    display: none;
+
+    em {
+      color: var(--primary-color);
+    }
+
+    @include md {
+      display: inline;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  gap: 0.15rem;
+  list-style: none;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding: 0.45rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 500;
-  
-  &:hover {
+  color: var(--body-color);
+  transition: color 0.3s, background 0.4s var(--ease-out);
+
+  @include md {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  &:hover,
+  &.active {
     color: var(--title-color);
+    background: var(--hover-surface);
   }
 }
 
-.sticky {
-  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
-} 
+@keyframes wobble {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  }
+  50% {
+    border-radius: 58% 42% 40% 60% / 56% 48% 52% 44%;
+  }
+}

@@ -1,0 +1,106 @@
+@import "../../assets/style/mixins";
+
+.writing {
+  padding: clamp(4rem, 10vh, 8rem) 0;
+}
+
+.header {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  @include md {
+    grid-template-columns: 1fr 3fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+    line-height: 1;
+
+    em {
+      color: var(--title-color);
+    }
+  }
+}
+
+.list {
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1.5rem;
+  align-items: center;
+  padding: 1.75rem 1rem;
+  border-radius: 20px;
+  color: var(--title-color);
+  transition: background 0.5s var(--ease-out), padding 0.6s var(--ease-out);
+
+  @include md {
+    grid-template-columns: 1fr 3fr auto auto;
+    padding: 2rem 1.5rem;
+  }
+
+  &:hover {
+    background: var(--hover-surface);
+    padding-left: 2rem;
+
+    .arrow {
+      transform: translateX(0.35rem);
+      color: var(--primary-color);
+    }
+
+    .title {
+      color: var(--muted-color);
+    }
+  }
+}
+
+.date,
+.read {
+  font-size: 0.8rem;
+  color: var(--muted-color);
+}
+
+.date {
+  grid-column: 1 / -1;
+
+  @include md {
+    grid-column: auto;
+  }
+}
+
+.title {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  transition: color 0.4s;
+}
+
+.read {
+  display: none;
+
+  @include md {
+    display: block;
+  }
+}
+
+.arrow {
+  font-size: 1.4rem;
+  transition: transform 0.5s var(--ease-out), color 0.3s;
+}
+
+.empty {
+  font-size: 1.2rem;
+  color: var(--muted-color);
+}
+
+.more {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,65 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.5s var(--ease-out), border-color 0.5s, transform 0.5s var(--ease-out);
+
+  &:hover .fill {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.fill {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  z-index: -1;
+  width: 260%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.7s var(--ease-liquid);
+}
+
+.label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.solid {
+  color: #fff;
+  background: var(--primary-color);
+  box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--primary-color) 70%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  .fill {
+    background: var(--primary-deep);
+  }
+}
+
+.glass {
+  color: var(--title-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+
+  .fill {
+    background: var(--primary-soft);
+  }
+
+  &:hover {
+    color: var(--primary-deep);
+  }
+}

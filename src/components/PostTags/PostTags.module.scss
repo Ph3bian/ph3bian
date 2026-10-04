@@ -1,14 +1,21 @@
 .postTags {
-  margin: 1em 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 
   &__link {
-    margin-right: .7em;
-    font-size: .8em;
-    color: currentColor;
-    text-decoration: none;
-    background-color: var(--bg-color);
-    color: currentColor !important; //Todo: remove important;
-    padding: .5em;
-    border-radius: var(--radius);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--title-color);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
   }
-} 
+}

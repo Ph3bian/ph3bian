@@ -1,34 +1,34 @@
-import Head from 'next/head'
 import Layout from '../components/Layout'
-import HeroContainer from '../components/HeroContainer'
-import Skills from '../components/Skills'
-import WorkHistory from '../components/WorkHistory'
-import Tools from '../components/Tools'
+import Hero from '../components/Hero'
+import Marquee from '../components/Marquee'
+import About from '../components/About'
+import Craft from '../components/Craft'
+import LatestWriting from '../components/LatestWriting'
 import Contact from '../components/Contact'
+import { getSortedPostsData } from '../lib/posts'
+import Seo from '../components/Seo'
+import { personSchema, websiteSchema } from '../lib/seo'
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <>
-      <Head>
-        <title>Chukwurah Phebian - Frontend Engineer</title>
-        <meta name="description" content="Frontend Engineer passionate about building accessible, responsive and performance optimised solutions. Specialising in React, TypeScript, and modern web technologies." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Chukwurah Phebian - Frontend Engineer" />
-        <meta property="og:description" content="Frontend Engineer passionate about building accessible, responsive and performance optimised solutions." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Chukwurah Phebian - Frontend Engineer" />
-        <meta name="twitter:description" content="Frontend Engineer passionate about building accessible, responsive and performance optimised solutions." />
-      </Head>
-      
-      <Layout showLogo={false}>
-        <HeroContainer />
-        <Skills />
-        <WorkHistory />
-        <Tools />
+      <Seo schema={[personSchema(), websiteSchema()]} />
+
+      <Layout>
+        <Hero />
+        <Marquee />
+        <About />
+        <Craft />
+        <LatestWriting posts={posts} />
         <Contact />
       </Layout>
     </>
   )
-} 
+}
+
+export function getStaticProps() {
+  const posts = getSortedPostsData()
+    .slice(0, 3)
+    .map(({ slug, title, date, readingTime }) => ({ slug, title, date, readingTime }))
+  return { props: { posts } }
+}

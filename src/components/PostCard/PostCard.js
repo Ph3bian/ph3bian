@@ -1,34 +1,38 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import PostMeta from '../PostMeta'
-import PostTags from '../PostTags'
+import { formatDate } from '../../lib/format'
 import styles from './PostCard.module.scss'
 
-export default function PostCard({ post }) {
-  return (
-    <div className={`${styles.postCard} ${styles.contentBox} ${post.coverImage ? styles.postCard__hasPoster : ''}`}>
-      <div className={styles.postCard__header}>
-        {post.coverImage && (
-          <Image 
-            alt="Cover image" 
-            className={styles.postCard__image} 
-            src={post.coverImage}
-            width={860}
-            height={400}
-          />
-        )}
-      </div>
-      <div className={styles.postCard__content}>
-        <h2 className={styles.postCard__title} dangerouslySetInnerHTML={{ __html: post.title }} />
-        <p className={styles.postCard__description} dangerouslySetInnerHTML={{ __html: post.description }} />
-        
-        <PostMeta className={styles.postCard__meta} post={post} />
-        <PostTags className={styles.postCard__tags} post={post} />
+// Deterministic hue shift per post so every card gets its own liquid swatch
+function swatch(slug) {
+  let h = 0
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) % 360
+  return { '--h1': `${318 + (h % 22)}deg`, '--rot': `${h}deg` }
+}
 
-        <Link className={styles.postCard__link} href={`/${post.slug}`}>
-          Link
-        </Link>
+export default function PostCard({ post, featured = false }) {
+  return (
+    <Link
+      href={`/blog/${post.slug}`}
+      className={`${styles.card} ${featured ? styles.featured : ''}`}
+      data-reveal
+    >
+      <div className={styles.art} style={swatch(post.slug)} aria-hidden="true">
+        <span className={styles.drop} />
+        <span className={`${styles.drop} ${styles.dropB}`} />
       </div>
-    </div>
+      <div className={styles.body}>
+        <div className={styles.meta}>
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <span aria-hidden="true">·</span>
+          <span>{post.readingTime} min read</span>
+          {!post.published && <span className={styles.draft}>Draft</span>}
+        </div>
+        <h2 className={styles.title}>{post.title}</h2>
+        {post.description && <p className={styles.description}>{post.description}</p>}
+        <span className={styles.cta}>
+          Read <span aria-hidden="true">→</span>
+        </span>
+      </div>
+    </Link>
   )
-} 
+}

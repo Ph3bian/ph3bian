@@ -42,3 +42,9 @@ coverage/
 
 # Project temp
 src/.temp
+
+# Generated at build time by scripts/generate-seo.mjs
+/public/sitemap.xml
+/public/robots.txt
+/public/rss.xml
+/public/llms.txt
