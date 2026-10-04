@@ -3,7 +3,7 @@ export const defaultTitle = 'Phebian Chukwurah · Frontend Engineer'
 export const defaultDescription =
   'Phebian Chukwurah is a frontend engineer with 8+ years of experience building accessible, responsive and performance-optimised web products with React, TypeScript and Next.js.'
 export const twitterHandle = '@ph3bian'
-export const defaultImage = '/images/me.png'
+export const defaultImage = '/images/phebian.png'
 
 export const author = {
   name: 'Phebian Chukwurah',

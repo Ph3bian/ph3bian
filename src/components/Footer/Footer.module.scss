@@ -77,6 +77,10 @@
       color: var(--primary-color);
     }
   }
+  span {
+    font-size: 0.9rem;
+    color: var(--footer-muted);
+  }
 }
 
 // Giant name, cropped at the bottom edge
