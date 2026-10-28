@@ -1,8 +1,8 @@
-@import 'reset';
-@import 'variables';
-@import 'typography';
-@import 'base';
-@import 'mixins';
-@import 'code';
-@import 'content-box';
-@import 'utils';
+@use "reset" as *;
+@use "variables" as *;
+@use "typography" as *;
+@use "base" as *;
+@use "mixins" as *;
+@use "code" as *;
+@use "content-box" as *;
+@use "utils" as *;

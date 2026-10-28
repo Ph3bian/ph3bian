@@ -1,4 +1,4 @@
-@import "../../assets/style/mixins";
+@use "../../assets/style/mixins" as *;
 
 .craft {
   padding: clamp(4rem, 10vh, 8rem) 0;

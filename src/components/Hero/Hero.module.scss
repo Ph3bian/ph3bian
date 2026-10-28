@@ -1,4 +1,4 @@
-@import "../../assets/style/mixins";
+@use "../../assets/style/mixins" as *;
 
 .hero {
   position: relative;

@@ -1,4 +1,4 @@
-@import "../../assets/style/mixins";
+@use "../../assets/style/mixins" as *;
 
 .section {
   font-size: 1rem;

@@ -11,7 +11,7 @@ export default function NotFound() {
             Page not found
           </h1>
           <p className={styles.subtitle}>
-            Sorry, we couldn't find that page. It may have been moved or
+            Sorry, we couldn&apos;t find that page. It may have been moved or
             deleted.
           </p>
 

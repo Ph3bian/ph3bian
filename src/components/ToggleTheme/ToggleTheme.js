@@ -1,27 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useSyncExternalStore } from 'react'
 import styles from './ToggleTheme.module.scss'
 
-export default function ToggleTheme() {
-  const [darkTheme, setDarkTheme] = useState(false)
+// The theme lives on <html data-theme> (set before first paint in _document.js);
+// subscribing to that attribute keeps the icon in sync wherever the theme changes.
+function subscribe(onChange) {
+  const observer = new MutationObserver(onChange)
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+  return () => observer.disconnect()
+}
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkTheme(true)
-      document.documentElement.setAttribute('data-theme', 'dark')
-    } else {
-      setDarkTheme(false)
-      document.documentElement.setAttribute('data-theme', 'light')
-    }
-  }, [])
+const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark'
+
+export default function ToggleTheme() {
+  const darkTheme = useSyncExternalStore(subscribe, isDark, () => false)
 
   const toggleTheme = () => {
-    const newTheme = !darkTheme
-    setDarkTheme(newTheme)
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light')
-    document.documentElement.setAttribute('data-theme', newTheme ? 'dark' : 'light')
+    const next = darkTheme ? 'light' : 'dark'
+    try {
+      localStorage.setItem('theme', next)
+    } catch (e) {}
+    document.documentElement.setAttribute('data-theme', next)
   }
 
   return (

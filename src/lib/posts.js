@@ -2,8 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
-import html from 'remark-html'
-import prism from 'remark-prism'
+import remarkRehype from 'remark-rehype'
+import rehypePrism from 'rehype-prism-plus'
+import rehypeStringify from 'rehype-stringify'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 
@@ -73,9 +74,11 @@ export async function getPostData(slug) {
   const matterResult = matter(fileContents)
 
   // Use remark to convert markdown into HTML string
+  // Markdown -> HTML with Prism syntax highlighting; posts are our own, so raw HTML is allowed
   const processedContent = await remark()
-    .use(prism)
-    .use(html, { sanitize: false })
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypePrism, { ignoreMissing: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 

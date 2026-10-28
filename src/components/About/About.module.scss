@@ -1,4 +1,4 @@
-@import "../../assets/style/mixins";
+@use "../../assets/style/mixins" as *;
 
 // Full-bleed section; the tall track lets the pinned stage hold still while scroll grows the garden
 .about {

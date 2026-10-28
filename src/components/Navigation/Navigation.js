@@ -46,10 +46,8 @@ export default function Navigation() {
 
   // Scrollspy: the blob follows whichever homepage section is in view
   useEffect(() => {
-    if (!isHome) {
-      setSection(null)
-      return
-    }
+    // Off the homepage the active link comes from the route instead
+    if (!isHome) return
     const els = links.map((l) => document.getElementById(l.section)).filter(Boolean)
     const observer = new IntersectionObserver(
       (entries) => {
