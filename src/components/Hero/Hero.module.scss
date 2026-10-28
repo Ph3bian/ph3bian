@@ -2,12 +2,20 @@
 
 .hero {
   position: relative;
+  isolation: isolate;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: clamp(2rem, 5vh, 4rem);
   padding: calc(var(--header-height) + 3rem) 0 3.5rem;
+}
+
+.meta,
+.stage,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .meta {

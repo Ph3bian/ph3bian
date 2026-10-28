@@ -1,0 +1,83 @@
+@import "../../assets/style/mixins";
+
+.principles {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: clamp(8rem, 20vh, 12rem) 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  text-align: center;
+}
+
+.eyebrow {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--title-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.title {
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 5.6vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 68rem;
+  margin-top: 2rem;
+  list-style: none;
+  text-align: left;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Frosted glass floating on the liquid
+.card {
+  padding: 1.75rem;
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--glass-bg) 85%, transparent);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  transition: transform 0.7s var(--ease-out), opacity 1.1s var(--ease-out);
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--body-color);
+  }
+}

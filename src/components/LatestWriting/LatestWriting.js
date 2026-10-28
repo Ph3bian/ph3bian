@@ -7,7 +7,7 @@ export default function LatestWriting({ posts = [] }) {
   return (
     <section id="writing" className={styles.writing} aria-labelledby="writing-title">
       <header className={styles.header}>
-        <span className="eyebrow">(03) Writing</span>
+        <span className="eyebrow">Writing</span>
         <h2 id="writing-title" data-reveal>
           Notes on <em>craft,</em> code &amp; care.
         </h2>

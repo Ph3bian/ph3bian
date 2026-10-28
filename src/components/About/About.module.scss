@@ -1,22 +1,151 @@
 @import "../../assets/style/mixins";
 
+// Full-bleed section; the tall track lets the pinned stage hold still while scroll grows the garden
 .about {
-  display: grid;
-  gap: 2rem;
-  padding: clamp(6rem, 14vh, 10rem) 0;
+  position: relative;
+  margin-inline: calc(50% - 50vw);
 
-  @include md {
-    grid-template-columns: 1fr 3fr;
-    gap: 3rem;
+  --leaf-light: #d9e0d4;
+  --leaf-dark: #9fae9c;
+  --stem: #8c9a7f;
+
+  html[data-theme="dark"] & {
+    --leaf-light: #7d8a7a;
+    --leaf-dark: #4f5a4e;
+    --stem: #786a74;
   }
 }
 
-.label {
-  padding-top: 0.9rem;
+.track {
+  height: 170vh;
+}
+
+.pin {
+  --wind: 0;
+
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  @media (max-aspect-ratio: 1/1) {
+    align-items: start;
+    padding-top: calc(var(--header-height) + 4vh);
+  }
+}
+
+.garden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+
+  // Portrait screens: show the whole garden along the bottom instead of cropping its sides
+  @media (max-aspect-ratio: 1/1) {
+    inset: auto 0 0;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+.wind,
+.sway {
+  transform-origin: 50% 100%;
+}
+
+.wind {
+  transform: rotate(calc(var(--wind) * 1.2deg));
+  transition: transform 1.6s var(--ease-out);
+}
+
+.sway {
+  animation: sway 7s ease-in-out infinite;
+}
+
+.stem {
+  fill: none;
+  stroke: var(--stem);
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+}
+
+.leaf {
+  fill: url(#leaf-fill);
+}
+
+.vein {
+  fill: none;
+  stroke: var(--leaf-dark);
+  stroke-width: 0.8;
+  opacity: 0.7;
+}
+
+.thorn {
+  fill: var(--stem);
+}
+
+// Soft light edges make the overlapping petals read as layers
+.ring path {
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 0.8;
+}
+
+.swirl {
+  fill: none;
+  stroke: #a02d70;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.55;
+}
+
+.sepal {
+  fill: none;
+  stroke: var(--leaf-dark);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+// A soft halo keeps the statement legible over the foliage
+.copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: min(58rem, 92vw);
+  padding: 2rem var(--gutter);
+  text-align: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -12% -8%;
+    z-index: -1;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--bg-color) 92%, transparent) 55%, transparent);
+  }
+}
+
+.eyebrow {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--title-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .statement {
-  font-size: clamp(1.75rem, 3.4vw, 3.1rem);
+  font-size: clamp(1.75rem, 3.6vw, 3.4rem);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.035em;
@@ -28,12 +157,35 @@
   }
 }
 
+// Petals drift down once the plants are in full bloom
+.petals span {
+  position: absolute;
+  top: -5%;
+  left: calc(8% + var(--i) * 9%);
+  width: 12px;
+  height: 16px;
+  border-radius: 80% 0 80% 0;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffc2e3 45%, var(--primary-color));
+  opacity: 0;
+  transition: opacity 1.2s;
+  animation: fall calc(9s + var(--i) * 0.7s) linear infinite;
+  // Delays are scrambled so petals do not fall in a line
+  animation-delay: calc(var(--d) * -1.9s);
+}
+
+.bloomed .petals span {
+  opacity: 0.85;
+}
+
 .stats {
+  position: relative;
   display: grid;
   gap: 1rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 6rem;
 
   @include md {
-    grid-column: 2;
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -53,5 +205,27 @@
   dd {
     font-size: 0.9rem;
     color: var(--muted-color);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-0.5deg);
+  }
+  50% {
+    transform: rotate(0.6deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(40px, 55vh, 0) rotate(200deg);
+  }
+  100% {
+    transform: translate3d(-20px, 110vh, 0) rotate(400deg);
   }
 }

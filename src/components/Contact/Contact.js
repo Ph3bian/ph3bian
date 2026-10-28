@@ -9,7 +9,7 @@ const socials = [
 export default function Contact() {
   return (
     <section id="contact" className={styles.contact} aria-labelledby="contact-title">
-      <span className="eyebrow">(04) Contact</span>
+      <span className="eyebrow">Contact</span>
 
       <h2 id="contact-title" className={styles.title} data-reveal>
         Let&rsquo;s make something <em>lovely</em> together.

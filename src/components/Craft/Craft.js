@@ -22,16 +22,15 @@ export default function Craft() {
   return (
     <section id="craft" className={styles.craft} aria-labelledby="craft-title">
       <header className={styles.header}>
-        <span className="eyebrow">(02) Craft</span>
+        <span className="eyebrow">Craft</span>
         <h2 id="craft-title" data-reveal>
           What I bring <em>to the table.</em>
         </h2>
       </header>
 
       <ol className={styles.list}>
-        {services.map(({ title, body, tags }, i) => (
+        {services.map(({ title, body, tags }) => (
           <li key={title} className={styles.row} data-reveal>
-            <span className={styles.index}>0{i + 1}</span>
             <h3 className={styles.title}>{title}</h3>
             <div className={styles.detail}>
               <p>{body}</p>

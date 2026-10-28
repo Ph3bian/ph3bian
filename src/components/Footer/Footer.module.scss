@@ -1,145 +1,143 @@
 @import "../../assets/style/mixins";
 
-// Airy close to the page: pale giant letters that the pink liquid lights up
+// A full-height living scene that closes the page
 .footer {
-  --footer-ink: var(--title-color);
-  --footer-muted: var(--body-color);
-  --footer-letter: color-mix(in srgb, var(--title-color) 7%, var(--bg-color));
-
   position: relative;
-  overflow: hidden;
-  color: var(--footer-muted);
   isolation: isolate;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--title-color);
 }
 
-.inner {
+.content {
   position: relative;
   z-index: 2;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter) 2rem;
-  display: grid;
-  gap: 2rem;
-
-  @include md {
-    grid-template-columns: 1fr 2.4fr;
-    column-gap: 4rem;
-    align-items: start;
-  }
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: clamp(8rem, 18vh, 12rem) var(--gutter) 3rem;
+  text-align: center;
 }
 
-.brand {
+.eyebrow {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--title-color);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.title {
+  max-width: 15ch;
+  font-size: clamp(2.6rem, 6.4vw, 6.25rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.lede {
+  max-width: 32rem;
+  font-size: 1.05rem;
+  color: var(--body-color);
+}
+
+// White pill, the one bold control on the scene
+.cta {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  color: var(--footer-ink);
+  padding: 1rem 1.9rem;
+  border-radius: 999px;
+  font-weight: 500;
+  color: var(--title-color);
+  background: #fff;
+  box-shadow: 0 20px 40px -18px color-mix(in srgb, var(--primary-color) 60%, transparent),
+    inset 0 -2px 0 rgba(235, 88, 185, 0.12);
+  transition: color 0.3s, box-shadow 0.5s var(--ease-out);
 
-  &__mark {
-    display: grid;
-    place-items: center;
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
-    background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.7) 0 6%, transparent 22%),
-      linear-gradient(140deg, #ff9fd6, var(--primary-color) 60%, var(--primary-deep));
-    color: #fff;
-    font-size: 1rem;
+  span {
+    display: inline-block;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  &:hover {
+    color: var(--primary-deep);
+    box-shadow: 0 26px 50px -18px color-mix(in srgb, var(--primary-color) 75%, transparent),
+      inset 0 -2px 0 rgba(235, 88, 185, 0.2);
+
+    span {
+      transform: translateX(0.3rem);
+    }
+  }
+
+  html[data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.92);
+    color: #2a272b;
   }
 }
 
-.blurb {
-  max-width: 52rem;
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
-  line-height: 1.75;
-  color: var(--footer-muted);
+.bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 1.5rem;
+  font-size: 0.85rem;
+  color: var(--body-color);
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
+  gap: 0.5rem 1.5rem;
   list-style: none;
 
-  @include md {
-    grid-column: 2;
-  }
-
   a {
-    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--footer-ink);
+    color: var(--title-color);
     transition: color 0.3s;
 
     &:hover {
-      color: var(--primary-color);
+      color: var(--primary-deep);
     }
   }
-  span {
-    font-size: 0.9rem;
-    color: var(--footer-muted);
-  }
 }
 
-// Giant name, cropped at the bottom edge
+// Giant translucent name, cropped by the bottom edge
 .word {
-  --x: 50%;
-  --y: 50%;
-
-  position: relative;
-  // The footer's own overflow crops the letters at the bottom edge,
-  // so the glow can spill freely above
-  height: 15.5vw;
-  user-select: none;
-}
-
-.text {
   position: relative;
   z-index: 1;
-  display: block;
+  height: 15vw;
   margin-left: -0.04em;
   font-size: 27vw;
   font-weight: 600;
   line-height: 0.8;
   letter-spacing: -0.065em;
   white-space: nowrap;
-  color: transparent;
-  // Letters light up pink wherever the liquid glow sits
-  background: radial-gradient(
-    22vw circle at var(--x) var(--y),
-    var(--primary-color) 0%,
-    color-mix(in srgb, var(--primary-color) 55%, var(--footer-letter)) 30%,
-    color-mix(in srgb, var(--primary-color) 18%, var(--footer-letter)) 55%,
-    var(--footer-letter) 80%
-  );
-  background-attachment: scroll;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
+  user-select: none;
+  // Frosted letters: translucent white with a soft pink rim
+  color: rgba(255, 255, 255, 0.62);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 -1px 0 color-mix(in srgb, var(--primary-color) 22%, transparent),
+    0 30px 80px color-mix(in srgb, var(--primary-color) 35%, transparent);
 
-.glow {
-  position: absolute;
-  z-index: 0;
-  left: 0;
-  top: 0;
-  width: 42vw;
-  height: 42vw;
-  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--primary-color) 28%, transparent), transparent 65%);
-  filter: blur(40px);
-  transform: translate(calc(var(--x) - 50%), calc(var(--y) - 50%));
-  animation: morph 9s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes morph {
-  0%,
-  100% {
-    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
-  }
-  50% {
-    border-radius: 63% 37% 38% 62% / 55% 61% 39% 45%;
+  html[data-theme="dark"] & {
+    color: rgba(255, 255, 255, 0.2);
   }
 }

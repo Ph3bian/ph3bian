@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import Button from '../Button'
+import LiquidScene from '../LiquidScene'
 import styles from './Hero.module.scss'
 
 export default function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
+      <LiquidScene fade="bottom" seed={2.1} bleed />
+
       <div className={styles.meta}>
         <span className="eyebrow">Phebian Chukwurah</span>
         <span className={styles.status}>
